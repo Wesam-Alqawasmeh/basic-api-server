@@ -13,6 +13,7 @@ const errorHandler = require("./error-handlers/500");
 const logger = require("./middleware/logger");
 
 const carRouter = require('./routes/car.route');
+const gameRouter = require('./routes/game.route');
 
 app.use(express.json());
 
@@ -22,6 +23,7 @@ app.use(logger);
 
 // car router using
 app.use(carRouter);
+app.use(gameRouter);
 
 
 // home route

@@ -22,8 +22,10 @@ let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
 let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 const car = require('./car.model');
+const game = require('./game.model');
 
 module.exports = {
     db: sequelize,
-    Car: car(sequelize, DataTypes)
+    Car: car(sequelize, DataTypes),
+    Game: game(sequelize, DataTypes)
 }

@@ -21,6 +21,8 @@ describe('Server testind', () => {
         expect(res.status).toBe(404);
     });
 
+
+    // Car endpoint testing
     it('return 201 with post request', async() => {
         const res  = await mockRequest.post('/car').send({
             comanyName:"kia",
@@ -56,6 +58,42 @@ describe('Server testind', () => {
 
     it('return 204 with delete request', async() => {
         const res  = await mockRequest.delete('/car/1');
+        expect(res.status).toBe(204);
+    });
+
+    //////////////////////////////////////////////
+
+
+    // Game endpoint testing
+    it('return 201 with post request', async() => {
+        const res  = await mockRequest.post('/game').send({
+           name: "FIFA",
+           category: "Football"
+        });
+        expect(res.status).toBe(201);
+    });
+
+    it('return 200 with get all cars request', async() => {
+        const res  = await mockRequest.get('/game');
+        expect(res.status).toBe(200);
+    });
+
+    it('return 200 with get one car request', async() => {
+        const res  = await mockRequest.get('/game');
+        expect(res.status).toBe(200);
+    });
+
+
+    it('return 201 with put request', async() => {
+        const res  = await mockRequest.put('/game/1').send({
+            name: "FIFA2021",
+            category: "Football"
+        });
+        expect(res.status).toBe(201);
+    });
+
+    it('return 204 with delete request', async() => {
+        const res  = await mockRequest.delete('/game/1');
         expect(res.status).toBe(204);
     });
 })
